@@ -1,0 +1,9 @@
+.app {
+    display: flex;
+    flex-direction: column;
+
+    &__icons {
+        display: flex;
+        gap: 10px;
+    }
+}
