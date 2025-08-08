@@ -1,14 +1,16 @@
 import styles from "./Icon.module.scss";
 
-function Icon({ name, prefix = "icon", color = "var(--color-gray-900)", size = "sm" }) {
+function Icon({ name, prefix = "icon", color = "var(--color-gray-900)", size, ariaLabel = "" }) {
   const symbolId = `#${prefix}-${name}`;
-  const className = size === "lg" ? `${styles.icon} ${styles.icon_lg}` : styles.icon;
+  const className = size ? styles.icon + " " + styles[`icon_${size}`] : styles.icon;
 
   return (
     <svg
       className={className}
-      aria-hidden="true"
+      role="img"
+      aria-label={ariaLabel}
     >
+      <title>{ariaLabel}</title>
       <use
         href={symbolId}
         fill={color}
