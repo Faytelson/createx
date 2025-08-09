@@ -2,4 +2,21 @@
   &__icons {
     margin-bottom: 20px;
   }
+
+  &__buttons {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  &__white-buttons {
+    width: 100%;
+    padding: 40px;
+    background-color: $color-gray-800;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
 }

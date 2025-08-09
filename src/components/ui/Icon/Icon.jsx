@@ -1,4 +1,4 @@
-function Icon({ name, prefix = "icon", color = "var(--color-gray-900)", size, ariaLabel = "" }) {
+function Icon({ name, prefix = "icon", color = "currentColor", size, ariaLabel = "" }) {
   const symbolId = `#${prefix}-${name}`;
 
   return (
@@ -11,7 +11,7 @@ function Icon({ name, prefix = "icon", color = "var(--color-gray-900)", size, ar
       <title>{ariaLabel}</title>
       <use
         href={symbolId}
-        fill={color}
+        fill={color || "currentColor"}
       />
     </svg>
   );
