@@ -18,14 +18,12 @@ function App() {
         />
         <Icon
           name="brain"
-          size="lg"
           color="var(--color-primary)"
           ariaLabel="Мозг (интеллект)"
           size={16}
         />
         <Icon
           name="budget"
-          size="lg"
           color="var(--color-success)"
           ariaLabel="Бюджет"
           size={48}
