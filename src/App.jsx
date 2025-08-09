@@ -1,3 +1,4 @@
+import "./App.scss";
 import Icon from "./components/ui/Icon/Icon";
 
 function App() {
