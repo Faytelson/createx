@@ -30,7 +30,13 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
+      "@": path.resolve(__dirname, "src"),
       "@styles": path.resolve(__dirname, "src/assets/styles"),
+      "@fonts": path.resolve(__dirname, "src/assets/fonts"),
+      "@images": path.resolve(__dirname, "src/assets/images"),
+      "@components": path.resolve(__dirname, "src/components"),
+      "@ui": path.resolve(__dirname, "src/components/ui"),
+      "@icons": path.resolve(__dirname, "src/components/images/icons"),
     },
   },
   css: {

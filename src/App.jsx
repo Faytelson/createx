@@ -1,6 +1,6 @@
-import "./App.scss";
-import Icon from "./components/ui/Icon/Icon";
-import Button from "./components/ui/Button/Button";
+import "@/App.scss";
+import Icon from "@ui/Icon/Icon";
+import Button from "@ui/Button/Button";
 
 function App() {
   return (

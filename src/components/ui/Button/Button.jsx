@@ -1,5 +1,5 @@
-import styles from "./Button.module.scss";
-import Icon from "../Icon/Icon";
+import styles from "@ui/Button/Button.module.scss";
+import Icon from "@ui/Icon/Icon";
 
 export default function Button({
   size = "md", // sm | md | lg
