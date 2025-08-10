@@ -5,9 +5,12 @@
   border-radius: 4px;
   align-items: center;
   justify-content: center;
+  @include font($font-main, 14px, 700);
+  text-transform: uppercase;
+  letter-spacing: 0.5;
+  transition: $transition-main;
   border: none;
   cursor: pointer;
-  //   transition:
 
   &_size {
     &_sm {
