@@ -1,0 +1,13 @@
+@use "./variables.scss" as *;
+
+@mixin pseudo() {
+  content: "";
+  position: absolute;
+  display: block;
+}
+
+@mixin font($ff, $fz, $fw) {
+  font-family: $ff;
+  font-size: $fz;
+  font-weight: $fw;
+}

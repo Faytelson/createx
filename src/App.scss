@@ -1,5 +1,11 @@
 .app {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+
   &__icons {
+    display: flex;
+    gap: 10px;
     margin-bottom: 20px;
   }
 

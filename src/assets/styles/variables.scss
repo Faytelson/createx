@@ -38,3 +38,22 @@ $color-gray-100: #F9F9F9;
   --color-gray-200: #{$color-gray-200};
   --color-gray-100: #{$color-gray-100};
 }
+
+// UI
+$font-main: "Ubuntu", sans-serif;
+$transition-main: 0.3s ease;
+
+// breakpoints
+$mobileSmBreakpoint: 320px;
+$mobileMdBreakpoint: 375px;
+$mobileLgBreakpoint: 425px;
+
+$tabletSmBreakpoint: 600px;
+$tabletMdBreakpoint: 768px;
+$tabletLgBreakpoint: 900px;
+
+$desktopSmBreakpoint: 1024px;
+$desktopMdBreakpoint: 1280px;
+$desktopLgBreakpoint: 1440px;
+$desktopXlBreakpoint: 1920px;
+$desktopXXlBreakpoint: 2560px;
