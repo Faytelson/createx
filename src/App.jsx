@@ -16,6 +16,22 @@ function App() {
         label="Label for checkbox disabled"
       ></Checkbox>
 
+      <Checkbox
+        label="Label for checkbox"
+        type="switch"
+      ></Checkbox>
+      <Checkbox
+        disabled
+        checked
+        label="Label for checkbox disabled"
+        type="switch"
+      ></Checkbox>
+      <Checkbox
+        disabled
+        label="Label for checkbox disabled"
+        type="switch"
+      ></Checkbox>
+
       <RadioButton
         label="Hockey"
         name="sport"

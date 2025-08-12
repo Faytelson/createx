@@ -1,22 +1,56 @@
 .input {
-  border-radius: 4px;
-  width: 16px;
-  height: 16px;
-  background-color: $color-white;
-  border: 1px solid $color-gray-500;
-  background-position: center;
   transition: $transition-main;
   flex-shrink: 0;
   cursor: pointer;
 
+  &_checkmark {
+    width: 16px;
+    height: 16px;
+    background-color: $color-white;
+    border: 1px solid $color-gray-500;
+    border-radius: 4px;
+    background-position: center;
+
+    &:checked {
+      border: 1px solid $color-primary;
+      background: url("./checkMarkTick.svg") center / 20px no-repeat $color-primary;
+    }
+  }
+
+  &_switch {
+    width: 24px;
+    height: 12px;
+    background-color: $color-gray-500;
+    border: 1px solid $color-gray-500;
+    border-radius: 16px;
+    position: relative;
+
+    &::after {
+      @include pseudo;
+      top: 0;
+      left: 0;
+      width: 10px;
+      height: 10px;
+      background: $color-white;
+      border-radius: 50%;
+      transition: $transition-switch;
+    }
+
+    &:checked {
+      border: 1px solid $color-primary;
+      background-color: $color-primary;
+
+      &::after {
+        top: 0;
+        transform: translateX(12px);
+        transition: $transition-main;
+      }
+    }
+  }
+
   &:disabled {
     opacity: 0.6;
     cursor: not-allowed;
-  }
-
-  &:checked {
-    border: 1px solid $color-primary;
-    background: url("./checkMarkTick.svg") center / 20px no-repeat $color-primary;
   }
 }
 
