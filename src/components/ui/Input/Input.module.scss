@@ -1,0 +1,97 @@
+.input {
+  @include font($font-main, 14px, 400);
+  line-height: 1.5em;
+  color: $color-gray-900;
+  border: 1px solid $color-gray-400;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 100%;
+  height: 44px;
+  background-color: $color-gray-200;
+  padding: 13px 16px;
+  transition: $transition-main;
+
+  &::placeholder {
+    @include font($font-main, 14px, 400);
+    line-height: 1.5em;
+    color: $color-gray-600;
+  }
+
+  &:focus {
+    border: 1px solid rgba(255, 90, 48, 0.4);
+    box-shadow:
+      0 4px 4px -4px rgba(30, 33, 44, 0.03),
+      0 12px 10px -6px rgba(255, 90, 48, 0.04),
+      0 30px 24px -10px rgba(255, 90, 48, 0.05),
+      0 80px 80px -20px rgba(255, 90, 48, 0.08);
+    background: $color-white;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+  }
+
+  &_error {
+    border: 1px solid $color-danger;
+  }
+
+  &_size {
+    &_sm {
+      font-size: 12px;
+      height: 36px;
+
+      &::placeholder {
+        font-size: 12px;
+      }
+    }
+
+    &_lg {
+      font-size: 16px;
+      height: 52px;
+
+      &::placeholder {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+.label {
+  @include font($font-main, 16px, 400);
+  line-height: 1.6em;
+  color: $color-gray-800;
+  margin-bottom: 8px;
+  width: 100%;
+  max-width: 100%;
+
+  &_disabled {
+    color: $color-gray-400;
+  }
+}
+
+.input-field {
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+}
+
+.error,
+.success {
+  @include font($font-main, 12px, 400);
+  line-height: 1em;
+}
+
+.error {
+  color: $color-danger;
+}
+
+.success {
+  color: $color-success;
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 14px;
+}
