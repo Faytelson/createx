@@ -1,0 +1,39 @@
+.input {
+  font-size: 16px;
+  border-radius: 4px;
+  width: 16px;
+  height: 16px;
+  background-color: $color-white;
+  border: 1px solid $color-gray-400;
+  background-position: center;
+  transition: $transition-main;
+  flex-shrink: 0;
+  cursor: pointer;
+
+  &:disabled {
+    border: 1px solid $color-gray-400;
+    background-color: $color-gray-200;
+    opacity: 0.8;
+    cursor: not-allowed;
+  }
+
+  &:checked {
+    border: 1px solid $color-primary;
+    background: url("./checkMarkTick.svg") center / 20px no-repeat $color-primary;
+  }
+}
+
+.label {
+  @include font($font-main, 16px, 400);
+  line-height: 1.6em;
+  color: $color-gray-800;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+
+  &_disabled {
+    color: $color-gray-500;
+    cursor: not-allowed;
+  }
+}

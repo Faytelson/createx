@@ -75,18 +75,13 @@
   position: relative;
 }
 
-.error,
-.success {
+.error {
   @include font($font-main, 12px, 400);
   line-height: 1em;
 }
 
 .error {
   color: $color-danger;
-}
-
-.success {
-  color: $color-success;
 }
 
 .icon {
