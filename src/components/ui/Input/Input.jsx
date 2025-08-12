@@ -2,14 +2,28 @@ import styles from "@ui/Input/Input.module.scss";
 import Icon from "@ui/Icon/Icon";
 import { classNames } from "@utils/utils";
 
-function Input({ value, placeholder, name, id, label, size, disabled, error, onChange }) {
-  const labelClasses = classNames([styles.label, { [styles.label_disabled]: disabled }]);
+function Input({
+  value,
+  placeholder,
+  name,
+  id,
+  label,
+  size = "md",
+  disabled,
+  error,
+  theme = "light",
+  onChange,
+}) {
+  const labelClasses = classNames([
+    styles.label,
+    styles[`label_theme_${theme}`],
+    { [styles.label_disabled]: disabled },
+  ]);
   const inputClasses = classNames([
     styles.input,
+    styles[`input_size_${size}`],
+    styles[`input_theme_${theme}`],
     { [styles.input_error]: error },
-    {
-      [styles[`input_size_${size}`]]: size,
-    },
   ]);
 
   return (

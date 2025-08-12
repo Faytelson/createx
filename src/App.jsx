@@ -1,4 +1,5 @@
 import "@/App.scss";
+import Input from "./components/ui/Input/Input";
 import Checkbox from "./components/ui/Checkbox/Checkbox";
 import RadioButton from "./components/ui/RadioButton/RadioButton";
 
@@ -53,6 +54,69 @@ function App() {
         id={3}
         disabled
       ></RadioButton>
+
+      <Input
+        value=""
+        placeholder="name"
+        name="name"
+        id={0}
+        label="Enter name:"
+        size="md"
+      ></Input>
+
+      <Input
+        value="Darya"
+        placeholder="name"
+        name="name"
+        id={0}
+        label="Enter name:"
+        size="md"
+        disabled
+      ></Input>
+
+      <Input
+        value="Faytelson"
+        placeholder="lastname"
+        name="lastname"
+        id={1}
+        label="Enter lastname:"
+        size="md"
+        error="Error!"
+      ></Input>
+
+      <div className="app__dark-theme">
+        <Input
+          value=""
+          placeholder="name"
+          name="name"
+          id={0}
+          label="Enter name:"
+          size="md"
+          theme="dark"
+        ></Input>
+
+        <Input
+          value="Darya"
+          placeholder="name"
+          name="name"
+          id={0}
+          label="Enter name:"
+          size="md"
+          disabled
+          theme="dark"
+        ></Input>
+
+        <Input
+          value="Faytelson"
+          placeholder="lastname"
+          name="lastname"
+          id={1}
+          label="Enter lastname:"
+          size="md"
+          error="Error!"
+          theme="dark"
+        ></Input>
+      </div>
     </div>
   );
 }
