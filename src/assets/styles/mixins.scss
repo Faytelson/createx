@@ -11,3 +11,72 @@
   font-size: $fz;
   font-weight: $fw;
 }
+
+@mixin inputCommonStyles {
+  font-family: $font-main;
+  font-weight: 400;
+  line-height: 1.5em;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 4px;
+  transition: $transition-main;
+}
+
+@mixin inputStyleSm {
+  font-size: 12px;
+  height: 36px;
+  padding: 0 12px;
+}
+
+@mixin inputStyleMd {
+  font-size: 14px;
+  height: 44px;
+  padding: 0 16px;
+}
+
+@mixin inputStyleLg {
+  font-size: 16px;
+  height: 52px;
+  padding: 0 16px;
+}
+
+@mixin inputStyleLight {
+  color: $color-gray-900;
+  border: 1px solid $color-gray-400;
+  background-color: $color-gray-200;
+}
+
+@mixin inputStyleDark {
+  color: $color-white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+@mixin inputLabel {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  @include font($font-main, 16px, 400);
+  line-height: 1.6em;
+  margin-bottom: 8px;
+
+  &_theme {
+    &_light {
+      color: $color-gray-800;
+    }
+
+    &_dark {
+      color: $color-white;
+    }
+  }
+
+  &_disabled {
+    color: $color-gray-400;
+  }
+}
+
+@mixin inputError {
+  @include font($font-main, 12px, 400);
+  color: $color-danger;
+  line-height: 1em;
+}

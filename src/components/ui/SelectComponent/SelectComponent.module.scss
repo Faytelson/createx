@@ -1,0 +1,73 @@
+.select {
+  width: 100%;
+  max-width: 100%;
+
+  &__label {
+    @include inputLabel;
+  }
+
+  &__trigger {
+    @include inputCommonStyles;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &_size {
+      &_sm {
+        @include inputStyleSm;
+
+        [data-placeholder] {
+          font-size: 12px;
+        }
+      }
+
+      &_md {
+        @include inputStyleMd;
+
+        [data-placeholder] {
+          font-size: 14px;
+        }
+      }
+
+      &_lg {
+        @include inputStyleLg;
+
+        [data-placeholder] {
+          font-size: 16px;
+        }
+      }
+    }
+
+    &_theme {
+      &_light {
+        @include inputStyleLight;
+
+        [data-placeholder] {
+          color: $color-gray-600;
+        }
+      }
+
+      &_dark {
+        @include inputStyleDark;
+
+        [data-placeholder] {
+          color: $color-gray-200;
+        }
+      }
+    }
+
+    &_error {
+      border: 1px solid $color-danger;
+    }
+  }
+}
+
+[data-placeholder] {
+  font-family: $font-main;
+  font-weight: 400;
+  line-height: 1.5em;
+}
+
+.error {
+  @include inputError;
+}

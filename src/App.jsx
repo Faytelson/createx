@@ -2,8 +2,17 @@ import "@/App.scss";
 import Input from "./components/ui/Input/Input";
 import Checkbox from "./components/ui/Checkbox/Checkbox";
 import RadioButton from "./components/ui/RadioButton/RadioButton";
+import SelectComponent from "./components/ui/SelectComponent/SelectComponent";
 
 function App() {
+  const options = [
+    { id: "apple", value: "apple", label: "Apple", group: "Fruits" },
+    { id: "banana", value: "banana", label: "Banana", group: "Fruits" },
+    { id: "blueberry", value: "blueberry", label: "Blueberry", group: "Fruits" },
+    { id: "grapes", value: "grapes", label: "Grapes", group: "Fruits" },
+    { id: "pineapple", value: "pineapple", label: "Pineapple", group: "Fruits" },
+  ];
+
   return (
     <div className="app">
       <Checkbox label="Label for checkbox"></Checkbox>
@@ -117,6 +126,25 @@ function App() {
           theme="dark"
         ></Input>
       </div>
+
+      <SelectComponent
+        options={options}
+        name="fruits"
+        label="Выберите фрукт из списка"
+        ariaLabel="fruits"
+        placeholder="No option chosen"
+        size="md"
+      ></SelectComponent>
+
+      <SelectComponent
+        options={options}
+        name="fruits"
+        label="Выберите фрукт из списка"
+        ariaLabel="fruits"
+        placeholder="No option chosen"
+        size="md"
+        error='Ужасная ошибка'
+      ></SelectComponent>
     </div>
   );
 }
