@@ -1,5 +1,6 @@
 import "@/App.scss";
-import Header from "./components/ui/Navbar/Navbar";
+import Navbar from "./components/ui/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
 import { useVh } from "@hooks/useVh";
 
 function App() {
@@ -35,7 +36,8 @@ function App() {
 
   return (
     <div className="app">
-      <Header menuItems={menuItems}></Header>
+      <Navbar menuItems={menuItems}></Navbar>
+      <Footer></Footer>
     </div>
   );
 }
