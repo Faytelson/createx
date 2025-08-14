@@ -38,6 +38,7 @@ export default defineConfig({
       "@ui": path.resolve(__dirname, "src/components/ui"),
       "@icons": path.resolve(__dirname, "src/components/images/icons"),
       "@utils": path.resolve(__dirname, "src/utils"),
+      "@hooks": path.resolve(__dirname, "src/hooks"),
     },
   },
   css: {

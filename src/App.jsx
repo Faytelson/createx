@@ -1,11 +1,43 @@
 import "@/App.scss";
-import Input from "./components/ui/Input/Input";
-import Checkbox from "./components/ui/Checkbox/Checkbox";
-import RadioButton from "./components/ui/RadioButton/RadioButton";
-import SelectComponent from "./components/ui/SelectComponent/SelectComponent";
+import Header from "./components/ui/Navbar/Navbar";
+import { useVh } from "@hooks/useVh";
 
 function App() {
-  return <div className="app"></div>;
+  useVh();
+
+  const menuItems = [
+    {
+      id: 1,
+      url: "/",
+      text: "Main",
+    },
+    {
+      id: 2,
+      url: "/about",
+      text: "About",
+    },
+    {
+      id: 3,
+      url: "/services",
+      text: "Service",
+    },
+    {
+      id: 4,
+      url: "/portfolio",
+      text: "Portfolio",
+    },
+    {
+      id: 5,
+      url: "/contacts",
+      text: "Contacts",
+    },
+  ];
+
+  return (
+    <div className="app">
+      <Header menuItems={menuItems}></Header>
+    </div>
+  );
 }
 
 export default App;

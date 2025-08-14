@@ -80,3 +80,11 @@
   color: $color-danger;
   line-height: 1em;
 }
+
+@mixin container {
+  padding: 0 $padding-sm;
+
+  @media screen and (min-width: $tabletMdBreakpoint) {
+    padding: 0 $padding-md;
+  }
+}
