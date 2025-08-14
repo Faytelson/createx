@@ -52,24 +52,26 @@ function SelectComponent({
             ></Icon>
           </Select.Icon>
         </Select.Trigger>
-        
-        <Select.Portal>
-          <Select.Content>
-            <Select.Viewport>
-              {options.map((opt) => {
-                return (
-                  <Select.Item
-                    value={opt.value}
-                    key={opt.id}
-                    disabled={opt.disabled}
-                  >
-                    <Select.ItemText>{opt.label}</Select.ItemText>
-                  </Select.Item>
-                );
-              })}
-            </Select.Viewport>
-          </Select.Content>
-        </Select.Portal>
+
+        <Select.Content
+          className={styles.select__content}
+          position="popper"
+        >
+          <Select.Viewport className={styles.select__viewport}>
+            {options.map((opt) => {
+              return (
+                <Select.Item
+                  className={styles.select__item}
+                  value={opt.value}
+                  key={opt.id}
+                  disabled={opt.disabled}
+                >
+                  <Select.ItemText>{opt.label}</Select.ItemText>
+                </Select.Item>
+              );
+            })}
+          </Select.Viewport>
+        </Select.Content>
       </Select.Root>
 
       {error && (

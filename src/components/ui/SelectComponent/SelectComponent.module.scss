@@ -60,6 +60,35 @@
       border: 1px solid $color-danger;
     }
   }
+
+  &__content {
+    width: var(--radix-select-trigger-width);
+    background: $color-white;
+    border: 1px solid $color-gray-400;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  &__viewport {
+    width: 100%;
+  }
+
+  &__item {
+    padding: 6px 10px;
+    cursor: pointer;
+    transition: $transition-select-opt;
+    @include font($font-main, 14px, 400);
+
+    &[data-disabled] {
+      color: $color-gray-400;
+      cursor: not-allowed;
+    }
+
+    &[data-highlighted] {
+      background: $color-primary;
+      color: white;
+    }
+  }
 }
 
 [data-placeholder] {

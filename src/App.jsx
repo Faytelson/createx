@@ -15,7 +15,7 @@ function App() {
 
   return (
     <div className="app">
-      <Checkbox label="Label for checkbox"></Checkbox>
+      {/* <Checkbox label="Label for checkbox"></Checkbox>
       <Checkbox
         disabled
         label="Label for checkbox disabled"
@@ -125,26 +125,48 @@ function App() {
           error="Error!"
           theme="dark"
         ></Input>
+      </div> */}
+
+      <SelectComponent
+        options={options}
+        name="fruits"
+        label="Выберите фрукт из списка"
+        ariaLabel="fruits"
+        placeholder="No option chosen"
+        size="md"
+      ></SelectComponent>
+
+      <SelectComponent
+        options={options}
+        name="fruits"
+        label="Выберите фрукт из списка"
+        ariaLabel="fruits"
+        placeholder="No option chosen"
+        size="md"
+        error="Ужасная ошибка"
+      ></SelectComponent>
+
+      <div className="app__dark-theme">
+        <SelectComponent
+          options={options}
+          name="fruits"
+          label="Выберите фрукт из списка"
+          ariaLabel="fruits"
+          placeholder="No option chosen"
+          size="sm"
+          theme="dark"
+        ></SelectComponent>
+
+        <SelectComponent
+          options={options}
+          name="fruits"
+          label="Выберите фрукт из списка"
+          ariaLabel="fruits"
+          placeholder="No option chosen"
+          size="lg"
+          theme="dark"
+        ></SelectComponent>
       </div>
-
-      <SelectComponent
-        options={options}
-        name="fruits"
-        label="Выберите фрукт из списка"
-        ariaLabel="fruits"
-        placeholder="No option chosen"
-        size="md"
-      ></SelectComponent>
-
-      <SelectComponent
-        options={options}
-        name="fruits"
-        label="Выберите фрукт из списка"
-        ariaLabel="fruits"
-        placeholder="No option chosen"
-        size="md"
-        error='Ужасная ошибка'
-      ></SelectComponent>
     </div>
   );
 }
