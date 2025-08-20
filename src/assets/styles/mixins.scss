@@ -88,3 +88,15 @@
     padding: 0 $padding-md;
   }
 }
+
+@mixin card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, $card-width-sm);
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+
+  @media screen and (min-width: $desktopMdBreakpoint) {
+    grid-template-columns: repeat(auto-fill, $card-width-lg);
+  }
+}

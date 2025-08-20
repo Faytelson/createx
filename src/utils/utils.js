@@ -22,4 +22,9 @@ const classNames = (args) => {
   return result.join(" ");
 };
 
-export { classNames };
+const publicPath = (base = "images/") => {
+  const prefix = import.meta.env?.BASE_URL ?? "/";
+  return (filename) => `${prefix}${base}${filename}`;
+};
+
+export { classNames, publicPath };

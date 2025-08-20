@@ -1,0 +1,50 @@
+.card {
+  width: $card-width-sm;
+  height: 316px;
+
+  &__img {
+    width: $card-width-sm;
+    height: 248px;
+    margin-bottom: 16px;
+  }
+
+  &__title {
+    line-height: 1.2em;
+    color: $color-gray-900;
+    text-align: center;
+    margin-bottom: 8px;
+    @include font($font-main, 16px, 700);
+  }
+
+  &__subtitle {
+    line-height: 1.2em;
+    color: $color-gray-700;
+    text-align: center;
+    @include font($font-main, 12px, 400);
+  }
+}
+
+@media screen and (min-width: $tabletMdBreakpoint) {
+  .card {
+    &__title {
+      font-size: 20px;
+    }
+
+    &__subtitle {
+      font-size: 14px;
+    }
+  }
+}
+
+@media screen and (min-width: $desktopMdBreakpoint) {
+  .card {
+    width: $card-width-lg;
+    height: 440px;
+
+    &__img {
+      width: $card-width-lg;
+      height: 345px;
+      margin-bottom: 16px;
+    }
+  }
+}

@@ -1,0 +1,95 @@
+.tabs {
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  &__item {
+    flex: 0 0 150px;
+    height: 104px;
+    border-radius: 4px;
+    padding: 15px;
+    color: $color-primary;
+    background-color: $color-white;
+
+    // box-shadow
+    box-shadow:
+  /* вниз */
+      0 4px 4px -4px rgba(30, 33, 44, 0.03),
+      0 12px 10px -6px rgba(154, 156, 165, 0.04),
+      0 30px 24px -10px rgba(154, 156, 165, 0.05),
+      0 80px 80px -20px rgba(154, 156, 165, 0.08),
+      /* вверх */ 0 -4px 4px -4px rgba(30, 33, 44, 0.03),
+      0 -12px 10px -6px rgba(154, 156, 165, 0.04),
+      0 -30px 24px -10px rgba(154, 156, 165, 0.05),
+      0 -80px 80px -20px rgba(154, 156, 165, 0.08);
+    // box-shadow end
+
+    transition: $transition-main;
+
+    &:hover {
+      .tabs__name {
+        color: $color-gray-900;
+      }
+    }
+
+    &_active {
+      color: $color-white;
+      background-color: $color-primary;
+
+      .tabs__name {
+        color: $color-white !important;
+      }
+    }
+  }
+
+  &__button {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 16px;
+    color: inherit;
+    cursor: pointer;
+  }
+
+  &__icon {
+    &_lg {
+      display: none;
+    }
+  }
+
+  &__name {
+    @include font($font-main, 14px, 700);
+    line-height: 1.2em;
+    color: $color-gray-600;
+    transition: $transition-main;
+  }
+}
+
+@media screen and (min-width: $tabletMdBreakpoint) {
+  .tabs {
+    &__item {
+      flex-basis: 230px;
+      height: 154px;
+    }
+
+    &__icon {
+      &_sm {
+        display: none;
+      }
+
+      &_lg {
+        display: block;
+      }
+    }
+
+    &__name {
+      font-size: 16px;
+    }
+  }
+}

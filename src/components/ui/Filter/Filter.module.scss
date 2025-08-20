@@ -1,0 +1,15 @@
+.filter {
+  display: flex;
+  flex-direction: column;
+  row-gap: 60px;
+
+  &__list {
+    @include card-container;
+  }
+
+  &__list-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
