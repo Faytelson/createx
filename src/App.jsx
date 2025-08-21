@@ -2,6 +2,7 @@ import "@/App.scss";
 import Navbar from "./components/ui/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Filter from "@ui/Filter/Filter";
+import BrandCarousel from "./components/Carousels/BrandCarousel/BrandCarousel";
 import { useVh } from "@hooks/useVh";
 
 function App() {
@@ -127,9 +128,19 @@ function App() {
     },
   ];
 
+  const sliders = [
+    { id: 0, img: { src: "logo_1.png" } },
+    { id: 1, img: { src: "logo_2.png" } },
+    { id: 2, img: { src: "logo_3.png" } },
+    { id: 3, img: { src: "logo_4.png" } },
+    { id: 4, img: { src: "logo_5.png" } },
+    { id: 5, img: { src: "logo_6.png" } },
+  ];
+
   return (
     <div className="app">
       <Navbar menuItems={menuItems}></Navbar>
+      <BrandCarousel sliders={sliders}></BrandCarousel>
       <Filter
         items={projects}
         categories={categories}
