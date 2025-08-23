@@ -1,0 +1,16 @@
+.brand-carousel {
+  .swiper {
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow: hidden;
+  }
+
+  .swiper-wrapper {
+    transition-timing-function: linear !important;
+  }
+
+  .swiper-slide {
+    width: 120px;
+    height: 64px;
+  }
+}

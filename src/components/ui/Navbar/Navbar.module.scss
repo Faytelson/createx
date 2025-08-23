@@ -2,6 +2,7 @@
   width: 100%;
   max-width: 100%;
   height: $navBarHeight;
+  z-index: 999;
 
   &__container {
     width: 100%;
@@ -31,22 +32,6 @@
     position: relative;
     flex-shrink: 0;
 
-    &_active {
-      &::before {
-        top: 50%;
-        transform: translateY(-50%) rotate(45deg);
-      }
-
-      &::after {
-        top: 50%;
-        transform: translateY(-50%) rotate(-45deg);
-      }
-
-      & .navbar__burger-line {
-        opacity: 0;
-      }
-    }
-
     &::before,
     &::after {
       top: 0;
@@ -68,6 +53,22 @@
       bottom: 0;
       transform: translateY(0) rotate(0deg);
     }
+
+    &_active {
+      &::before {
+        top: 50%;
+        transform: translateY(-50%) rotate(45deg);
+      }
+
+      &::after {
+        top: 50%;
+        transform: translateY(-50%) rotate(-45deg);
+      }
+
+      & .navbar__burger-line {
+        opacity: 0;
+      }
+    }
   }
 
   &__burger-line {
@@ -88,13 +89,13 @@
     left: 0;
     width: 100%;
     height: calc(100vh - $navBarHeight); //fallback
-    height: calc((var(--vh, 1vh) * 100) - $navBarHeight);
+    height: calc((var(--vh, 1vh) * 100) - $navBarHeight + 2px); //2px запас
     overflow-y: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     background-color: $color-gray-900;
-    padding: 26px $padding-sm 40px;
+    padding: 26px $padding-xs 40px;
 
     opacity: 0;
     pointer-events: none;
@@ -153,7 +154,7 @@
 @media screen and (min-width: $tabletMdBreakpoint) {
   .navbar {
     &__burger-menu {
-      padding: 30px $padding-md 50px;
+      padding: 30px $padding-sm 50px;
     }
 
     &__mobile {

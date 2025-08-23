@@ -142,14 +142,14 @@ function App() {
     {
       id: 1,
       img: {
-        src: "/images/testimonials/work-team-1.jpg",
+        src: "testimonial_2.jpg",
         title: "Sunrise Project team",
       },
       thumbImg: {
-        src: "/images/testimonials/avatars/john-doe.jpg",
+        src: "thumb_1.png",
         title: "John Doe",
       },
-      testimonial: {
+      review: {
         text: "Very high quality and professional service! All problems were solved, even those I wasn't aware of.",
         name: "John Doe",
         position: "CEO of Vector LLC",
@@ -158,14 +158,14 @@ function App() {
     {
       id: 2,
       img: {
-        src: "/images/testimonials/work-team-2.jpg",
+        src: "testimonial_4.avif",
         title: "Team meeting",
       },
       thumbImg: {
-        src: "/images/testimonials/avatars/sarah-wilson.jpg",
+        src: "thumb_2.png",
         title: "Sarah Wilson",
       },
-      testimonial: {
+      review: {
         text: "Deadlines were met down to the hour. The result exceeded all expectations. We will definitely work with them again.",
         name: "Sarah Wilson",
         position: "Marketing Director at TechSolutions Inc.",
@@ -174,14 +174,14 @@ function App() {
     {
       id: 3,
       img: {
-        src: "/images/testimonials/work-team-3.jpg",
+        src: "testimonial_3.jpg",
         title: "Office workspace",
       },
       thumbImg: {
-        src: "/images/testimonials/avatars/michael-brown.jpg",
+        src: "thumb_3.png",
         title: "Michael Brown",
       },
-      testimonial: {
+      review: {
         text: "The team demonstrated exceptional expertise and attention to detail. The project was delivered flawlessly.",
         name: "Michael Brown",
         position: "CTO at Innovation Labs",
@@ -190,14 +190,14 @@ function App() {
     {
       id: 4,
       img: {
-        src: "/images/testimonials/work-team-4.jpg",
+        src: "testimonial_1.jpg",
         title: "Creative session",
       },
       thumbImg: {
-        src: "/images/testimonials/avatars/emily-davis.jpg",
+        src: "thumb_4.png",
         title: "Emily Davis",
       },
-      testimonial: {
+      review: {
         text: "Outstanding communication and results. They truly understand our business needs and deliver beyond expectations.",
         name: "Emily Davis",
         position: "Product Manager at CreativeStudio",

@@ -1,28 +1,32 @@
-function TestimonialSlide({ thumbImg, testimonial, img }) {
+import styles from "@components/Carousels/TestimonialCarousel/TestimonialSlide.module.scss";
+
+function TestimonialSlide({ thumbImgSrc, thumbImgTitle, text, name, position, imgSrc, imgTitle }) {
   return (
-    <article className="testimonial-slide">
+    <article className={styles["testimonial-slide"]}>
       {/* img с изображением рабочих */}
-      <img
-        src={img.src}
-        alt={img.title}
-        className="testimonial-slide__image"
-      ></img>
+      <div className={styles["testimonial-slide__image-container"]}>
+        <img
+          src={imgSrc}
+          alt={imgTitle}
+          className={styles["testimonial-slide__image"]}
+        ></img>
+      </div>
 
       {/* текстовый блок */}
-      <div className="testimonial-slide__info">
+      <div className={styles["testimonial-slide__info"]}>
         {/* thumb img */}
         <img
-          src={thumbImg.src}
-          alt={thumbImg.title}
-          className="testimonial-slide__thumb"
+          src={thumbImgSrc}
+          alt={thumbImgTitle}
+          className={styles["testimonial-slide__thumb"]}
         />
         <figure>
           <blockquote cite="#">
-            <p className="testimonial-slide__text">{testimonial.text}</p>
+            <p className={styles["testimonial-slide__text"]}>{text}</p>
           </blockquote>
           <figcaption>
-            <cite class="testimonial-slide__name">{testimonial.name}</cite>,
-            <span class="testimonial-slide__position">{testimonial.position}</span>
+            <cite className={styles["testimonial-slide__name"]}>{name}</cite>
+            <span className={styles["testimonial-slide__position"]}>{position}</span>
           </figcaption>
         </figure>
       </div>

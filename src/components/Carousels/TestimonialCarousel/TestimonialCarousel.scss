@@ -1,0 +1,114 @@
+.testimonial-carousel {
+  background-color: $color-gray-200;
+  padding-top: 30px;
+  padding-bottom: 50px;
+
+  &__inner {
+    @include container;
+  }
+
+  &__title {
+    @include font($font-main, 28px, 700);
+    line-height: 1.2em;
+    color: $color-gray-900;
+    margin-bottom: 25px;
+  }
+
+  .swiper {
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow: hidden;
+  }
+
+  .swiper-button-prev {
+    top: 440px;
+    left: auto;
+    right: 150px;
+
+    &::after {
+      content: "\2190";
+      font-size: 42px;
+      color: $color-gray-900;
+    }
+  }
+
+  .swiper-button-next {
+    top: 440px;
+
+    &::after {
+      content: "\2192";
+      font-size: 42px;
+      color: $color-gray-900;
+    }
+  }
+}
+
+@media screen and (min-width: $tabletLgBreakpoint) {
+  .testimonial-carousel {
+    padding-top: 0;
+    padding-bottom: 0;
+    background: linear-gradient(
+      to bottom,
+      $color-gray-200 calc(100% - $titleAndImgOffset-sm),
+      transparent calc(100% - $titleAndImgOffset-sm)
+    );
+
+    &__inner {
+      position: relative;
+    }
+
+    &__title {
+      position: absolute;
+      top: $titleAndImgOffset-sm;
+      z-index: 2;
+    }
+
+    .swiper-button-prev {
+      top: auto;
+      bottom: 70px;
+      right: 500px;
+    }
+
+    .swiper-button-next {
+      top: auto;
+      bottom: 70px;
+      right: 400px;
+    }
+  }
+}
+
+@media screen and (min-width: $tabletLgBreakpoint) {
+  .testimonial-carousel {
+    .swiper-button-prev {
+      top: auto;
+      bottom: 100px;
+      right: 640px;
+    }
+
+    .swiper-button-next {
+      top: auto;
+      bottom: 100px;
+      right: 550px;
+    }
+  }
+}
+
+@media screen and (min-width: $desktopLgBreakpoint) {
+  .testimonial-carousel {
+    &__title {
+      font-size: 46px;
+    }
+
+    .swiper-button-prev {
+      top: auto;
+      bottom: 100px;
+      right: 740px;
+    }
+
+    .swiper-button-next {
+      top: auto;
+      bottom: 100px;
+      right: 650px;
+    }
+  }
+}

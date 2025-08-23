@@ -47,11 +47,17 @@ $transition-select-opt: 0.1s linear;
 
 $navBarHeight: 92px;
 
-$padding-sm: 20px;
-$padding-md: 40px;
+$padding-xs: 20px;
+$padding-sm: 40px;
+$padding-md: 80px;
+$padding-lg: 120px;
+$padding-xl: 160px;
 
 $card-width-sm: 280px;
 $card-width-lg: 390px;
+
+$titleAndImgOffset-sm: 50px;
+$titleAndImgOffset-md: 80px;
 
 // breakpoints
 $mobileSmBreakpoint: 320px;
