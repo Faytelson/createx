@@ -5,9 +5,9 @@ import Tabs from "@ui/Tabs/Tabs";
 import Card from "@components/Card/Card";
 
 function Filter({ items, categories }) {
-  const [activeId, setactiveId] = useState(0);
+  const [activeId, setActiveId] = useState(0);
   const filtered = activeId === 0 ? items : items.filter((item) => item.category.id === activeId);
-  const resolveImg = publicPath();
+  const resolveImg = publicPath('images/buildings/');
 
   return (
     <section className={styles.filter}>
@@ -15,7 +15,7 @@ function Filter({ items, categories }) {
         categories={categories}
         activeId={activeId}
         onChange={(categoryId) => {
-          setactiveId(categoryId);
+          setActiveId(categoryId);
         }}
         ariaLabel="Categories"
       />
