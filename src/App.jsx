@@ -4,6 +4,7 @@ import Footer from "./components/Footer/Footer";
 import Filter from "@ui/Filter/Filter";
 import BrandCarousel from "./components/Carousels/BrandCarousel/BrandCarousel";
 import TestimonialCarousel from "./components/Carousels/TestimonialCarousel/TestimonialCarousel";
+import Text from "./components/ui/Text/Text";
 import { useVh } from "@hooks/useVh";
 
 function App() {
@@ -207,6 +208,60 @@ function App() {
 
   return (
     <div className="app">
+      <Text
+        tag="h1"
+        view="title-main"
+        weight="bold"
+        color="primary"
+      >
+        We are Createx Construction Bureau{" "}
+      </Text>
+
+      <Text
+        tag="p"
+        view="p-20"
+        weight="regular"
+        color="secondary"
+      >
+        Cras ultrices leo vitae non viverra. Fringilla nisi quisque consequat, dignissim vitae proin
+        ipsum sed. Pellentesque nec turpis purus eget pellentesque integer ipsum elementum felis.
+      </Text>
+
+      <Text
+        tag="p"
+        view="p-18"
+        weight="regular"
+        color="secondary"
+      >
+        We are rightfully considered to be the best construction company in the USA.
+      </Text>
+
+      <Text
+        tag="p"
+        view="p-16"
+        weight="regular"
+        color="secondary"
+      >
+        Culpa nostrud commodo ea consequat aliquip reprehenderit. Veniam velit nostrud aliquip sunt.
+      </Text>
+
+      <Text
+        tag="p"
+        view="p-14"
+        weight="regular"
+        color="dark"
+      >
+        Phone*
+      </Text>
+
+      <Text
+        tag="h2"
+        view="title-secondary"
+        weight="bold"
+        color="primary"
+      >
+        Want to know more? Ask us a question:
+      </Text>
       <Navbar menuItems={menuItems}></Navbar>
       <TestimonialCarousel
         title="What clients are saying"

@@ -1,0 +1,72 @@
+@use "@styles" as *;
+
+.text {
+  @include font($font-main, 20px, 400);
+  line-height: 150%;
+
+  &_view {
+    &_p-14 {
+      font-size: 14px;
+    }
+
+    &_p-16 {
+      font-size: 16px;
+    }
+
+    &_p-18 {
+      font-size: 18px;
+    }
+
+    &_p-20 {
+      font-size: 20px;
+    }
+
+    &_title-secondary {
+      font-size: 24px;
+
+      @media screen and (min-width: 1024px) {
+        font-size: 28px;
+      }
+    }
+
+    &_title-main {
+      font-size: 34px;
+
+      @media screen and (min-width: 1024px) {
+        font-size: 46px;
+      }
+    }
+  }
+
+  &_weight {
+    &_regular {
+      font-weight: 400;
+    }
+
+    &_medium {
+      font-weight: 500;
+    }
+
+    &_bold {
+      font-weight: 700;
+    }
+  }
+
+  &_color {
+    &_primary {
+      color: $color-gray-900;
+    }
+
+    &_dark {
+      color: $color-gray-800;
+    }
+
+    &_secondary {
+      color: $color-gray-700;
+    }
+
+    &_white {
+      color: $color-white;
+    }
+  }
+}
