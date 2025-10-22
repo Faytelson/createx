@@ -1,9 +1,30 @@
 import styles from "@ui/SelectComponent/SelectComponent.module.scss";
-import { Select } from "radix-ui";
+import * as Select from "@radix-ui/react-select";
 import Icon from "@ui/Icon/Icon";
-import { classNames } from "@utils/utils";
+import clsx from "clsx";
 
-function SelectComponent({
+export type SelectOption = {
+  id: string | number;
+  value: string;
+  label: string;
+  disabled?: boolean;
+};
+
+export type SelectComponentProps = {
+  options: SelectOption[];
+  value: string;
+  name: string;
+  label?: string;
+  size?: "sm" | "md" | "lg";
+  theme?: "light" | "dark";
+  disabled?: boolean;
+  ariaLabel?: string;
+  placeholder?: string;
+  error?: string;
+  onValueChange: (value: string) => void;
+};
+
+const SelectComponent: React.FC<SelectComponentProps> = ({
   options,
   value,
   name,
@@ -15,14 +36,14 @@ function SelectComponent({
   placeholder,
   error,
   onValueChange,
-}) {
-  const triggerClasses = classNames([
+}) => {
+  const triggerClasses = clsx(
     styles.select__trigger,
     styles[`select__trigger_size_${size}`],
     styles[`select__trigger_size_${size}`],
     styles[`select__trigger_theme_${theme}`],
     { [styles.select__trigger_error]: error },
-  ]);
+  );
 
   return (
     <div className={styles.select}>
@@ -34,7 +55,6 @@ function SelectComponent({
       </label>
 
       <Select.Root
-        id={name}
         value={value}
         name={name}
         disabled={disabled}
@@ -84,6 +104,6 @@ function SelectComponent({
       )}
     </div>
   );
-}
+};
 
 export default SelectComponent;

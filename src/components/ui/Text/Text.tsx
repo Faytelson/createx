@@ -1,9 +1,19 @@
+import type { FC, ReactNode } from "react";
 import styles from "./Text.module.scss";
 import { clsx } from "clsx";
 
-const Text = ({
+export type TextProps = {
+  tag?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "div" | "p" | "span";
+  view?: "title-main" | "title-secondary" | "p-20" | "p-18" | "p-16" | "p-14";
+  weight?: "regular" | "medium" | "bold";
+  color?: "primary" | "secondary" | "dark" | "white";
+  className?: string;
+  children: ReactNode;
+}; 
+
+const Text: FC<TextProps> = ({
   tag = "p",
-  view, // title-main, title-secondary, p-20, p-18, p-16, p-14
+  view = "p-16",
   weight = "regular",
   color,
   className,

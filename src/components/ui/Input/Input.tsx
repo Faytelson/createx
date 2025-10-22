@@ -1,30 +1,44 @@
+import React from "react";
 import styles from "@ui/Input/Input.module.scss";
 import Icon from "@ui/Icon/Icon";
-import { classNames } from "@utils/utils";
+import clsx from "clsx";
 
-function Input({
+export type InputProps = {
+  value: string;
+  placeholder: string;
+  name: string;
+  id: string;
+  label?: string;
+  inputSize?: "sm" | "md" | "lg";
+  disabled?: boolean;
+  error?: string;
+  theme?: "light" | "dark";
+  onChange: (value: string) => void;
+} & Omit<React.InputHTMLAttributes<HTMLInputElement>, "onChange">;
+
+const Input = ({
   value,
   placeholder,
   name,
   id,
   label,
-  size = "md",
+  inputSize = "md",
   disabled,
   error,
   theme = "light",
   onChange,
-}) {
-  const labelClasses = classNames([
-    styles.label,
-    styles[`label_theme_${theme}`],
-    { [styles.label_disabled]: disabled },
-  ]);
-  const inputClasses = classNames([
+  ...rest
+}: InputProps) => {
+  const labelClasses = clsx(styles.label, styles[`label_theme_${theme}`], {
+    [styles.label_disabled]: disabled,
+  });
+
+  const inputClasses = clsx(
     styles.input,
-    styles[`input_size_${size}`],
+    styles[`input_size_${inputSize}`],
     styles[`input_theme_${theme}`],
     { [styles.input_error]: error },
-  ]);
+  );
 
   return (
     <label className={labelClasses}>
@@ -39,7 +53,8 @@ function Input({
           id={id}
           disabled={disabled}
           aria-invalid={!!error}
-          onChange={onChange}
+          onChange={(e) => onChange(e.target.value)}
+          {...rest}
         />
         {error && (
           <div className={styles.icon}>
@@ -62,6 +77,6 @@ function Input({
       )}
     </label>
   );
-}
+};
 
 export default Input;

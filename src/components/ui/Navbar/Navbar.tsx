@@ -1,24 +1,29 @@
-import { useState } from "react";
-import logo from "@images/logo.svg";
+import { useState, type FC } from "react";
 import ContactLink from "@ui/ContactLink/ContactLink";
+import logo from "@images/logo.svg";
 import styles from "@ui/Navbar/Navbar.module.scss";
-import { classNames } from "@utils/utils";
+import clsx from "clsx";
 
-function Navbar({ menuItems }) {
+export type MenuItem = {
+  id: number;
+  url: string;
+  text: string;
+};
+
+export type NavbarProps = {
+  menuItems: MenuItem[];
+};
+
+const Navbar: FC<NavbarProps> = ({ menuItems }) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const closeMenu = () => setMenuOpen(false);
 
-  const burgerClasses = classNames([
-    styles.navbar__burger,
-    { [styles.navbar__burger_active]: menuOpen },
-  ]);
-
-  const burgerMenuClasses = classNames([
-    styles["navbar__burger-menu"],
-    { [styles["navbar__burger-menu_active"]]: menuOpen },
-  ]);
+  const burgerClasses = clsx(styles.navbar__burger, { [styles.navbar__burger_active]: menuOpen });
+  const burgerMenuClasses = clsx(styles["navbar__burger-menu"], {
+    [styles["navbar__burger-menu_active"]]: menuOpen,
+  });
 
   return (
     <nav className={styles.navbar}>
@@ -74,7 +79,6 @@ function Navbar({ menuItems }) {
             <div className={styles.navbar__mobile}>
               <ContactLink
                 href={"tel:+14055550128"}
-                ariaLabel="Call Create X"
                 icon="iphone"
                 label="Call us"
                 text="(405) 555-0128"
@@ -83,7 +87,6 @@ function Navbar({ menuItems }) {
 
               <ContactLink
                 href={"mailto:hello@createx.com"}
-                ariaLabel="Email Create X"
                 icon="iphone"
                 label="Talk to us"
                 text="hello@createx.com"
@@ -94,7 +97,6 @@ function Navbar({ menuItems }) {
             <div className={styles.navbar__desktop}>
               <ContactLink
                 href={"tel:+14055550128"}
-                ariaLabel="Call Create X"
                 icon="iphone"
                 label="Call us"
                 text="(405) 555-0128"
@@ -102,7 +104,6 @@ function Navbar({ menuItems }) {
 
               <ContactLink
                 href={"mailto:hello@createx.com"}
-                ariaLabel="Email Create X"
                 icon="iphone"
                 label="Talk to us"
                 text="hello@createx.com"
@@ -113,6 +114,6 @@ function Navbar({ menuItems }) {
       </div>
     </nav>
   );
-}
+};
 
 export default Navbar;

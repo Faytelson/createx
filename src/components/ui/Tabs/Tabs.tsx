@@ -1,17 +1,25 @@
+import { type Category } from "../Filter";
 import styles from "@ui/Tabs/Tabs.module.scss";
 import Icon from "@ui/Icon/Icon";
-import { classNames } from "@utils/utils";
+import clsx from "clsx";
 
-function Tabs({ categories, onChange, activeId, ariaLabel }) {
+type TabsProps = {
+  categories: Category[];
+  onChange: (val: number) => void;
+  activeId: number;
+  ariaLabel: string;
+};
+
+const Tabs = ({ categories, onChange, activeId, ariaLabel }: TabsProps) => {
   return (
     <nav aria-label={ariaLabel}>
       <ul className={styles.tabs__list}>
         {categories.map((category) => (
           <li
             key={category.id}
-            className={classNames([styles.tabs__item, {
-              [styles.tabs__item_active]: category.id === activeId
-            }])}
+            className={clsx(styles.tabs__item, {
+              [styles.tabs__item_active]: category.id === activeId,
+            })}
           >
             <button
               type="button"
@@ -38,6 +46,6 @@ function Tabs({ categories, onChange, activeId, ariaLabel }) {
       </ul>
     </nav>
   );
-}
+};
 
 export default Tabs;

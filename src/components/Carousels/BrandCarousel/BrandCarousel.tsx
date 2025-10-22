@@ -1,10 +1,19 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, A11y } from "swiper/modules";
-import { publicPath } from "@utils/utils";
+import { publicPath } from "@/utils";
+import { type ImageProps } from "@/components/ui/Image";
 import "swiper/css";
 import "@components/Carousels/BrandCarousel/BrandCarousel.scss";
 
-function BrandCarousel({ sliders }) {
+export type SliderItem = {
+  id: number;
+  img: ImageProps;
+};
+export type BrandCarouselProps = {
+  sliders: SliderItem[];
+};
+
+const BrandCarousel: React.FC<BrandCarouselProps> = ({ sliders }) => {
   const resolveImg = publicPath("images/logos/");
 
   return (
@@ -30,13 +39,16 @@ function BrandCarousel({ sliders }) {
               tag="li"
               key={slide.id}
             >
-              <img src={resolveImg(slide.img.src)}></img>
+              <img
+                src={resolveImg(slide.img.src)}
+                alt={slide.img.alt}
+              ></img>
             </SwiperSlide>
           );
         })}
       </Swiper>
     </section>
   );
-}
+};
 
 export default BrandCarousel;

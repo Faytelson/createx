@@ -1,9 +1,12 @@
+import React, {useState} from "react";
 import logo from "@images/logo_white.svg";
 import Icon from "@ui/Icon/Icon";
 import Input from "@ui/Input/Input";
 import styles from "@components/Footer/Footer.module.scss";
 
-function Footer() {
+const Footer: React.FC = () => {
+  const [inputValue, setInputValue] = useState('');
+
   return (
     <footer className={styles.footer}>
       <div className={styles.footer__container}>
@@ -82,10 +85,11 @@ function Footer() {
           <h4 className={styles["footer__form-title"]}>Let’s stay in touch</h4>
           <form className={styles.footer__form}>
             <Input
-              value="value"
+              value={inputValue}
               placeholder="placeholder"
               name="name"
               id="id-1"
+              onChange={(value) => setInputValue(value)}
             />
           </form>
           <p className={styles["footer__form-description"]}>
@@ -195,6 +199,6 @@ function Footer() {
       </div>
     </footer>
   );
-}
+};
 
 export default Footer;

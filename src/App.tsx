@@ -1,11 +1,13 @@
+import { useState } from "react";
+import Navbar from "@ui/Navbar";
+import Footer from "@components/Footer";
+import Filter from "@ui/Filter";
+import BrandCarousel from "@components/Carousels/BrandCarousel";
+import TestimonialCarousel from "@components/Carousels/TestimonialCarousel";
+import Text from "@ui/Text";
+import RadioButton from "./components/ui/RadioButton";
+import { useVh } from "@/hooks/useVh";
 import "@/App.scss";
-import Navbar from "./components/ui/Navbar/Navbar";
-import Footer from "./components/Footer/Footer";
-import Filter from "@ui/Filter/Filter";
-import BrandCarousel from "./components/Carousels/BrandCarousel/BrandCarousel";
-import TestimonialCarousel from "./components/Carousels/TestimonialCarousel/TestimonialCarousel";
-import Text from "./components/ui/Text/Text";
-import { useVh } from "@hooks/useVh";
 
 function App() {
   useVh();
@@ -131,12 +133,12 @@ function App() {
   ];
 
   const sliders = [
-    { id: 0, img: { src: "logo_1.png" } },
-    { id: 1, img: { src: "logo_2.png" } },
-    { id: 2, img: { src: "logo_3.png" } },
-    { id: 3, img: { src: "logo_4.png" } },
-    { id: 4, img: { src: "logo_5.png" } },
-    { id: 5, img: { src: "logo_6.png" } },
+    { id: 0, img: { src: "logo_1.png", alt: "title and description" } },
+    { id: 1, img: { src: "logo_2.png", alt: "title and description" } },
+    { id: 2, img: { src: "logo_3.png", alt: "title and description" } },
+    { id: 3, img: { src: "logo_4.png", alt: "title and description" } },
+    { id: 4, img: { src: "logo_5.png", alt: "title and description" } },
+    { id: 5, img: { src: "logo_6.png", alt: "title and description" } },
   ];
 
   const testimonialsData = [
@@ -144,11 +146,11 @@ function App() {
       id: 1,
       img: {
         src: "testimonial_2.jpg",
-        title: "Sunrise Project team",
+        alt: "Sunrise Project team",
       },
       thumbImg: {
         src: "thumb_1.png",
-        title: "John Doe",
+        alt: "John Doe",
       },
       review: {
         text: "Very high quality and professional service! All problems were solved, even those I wasn't aware of.",
@@ -160,11 +162,11 @@ function App() {
       id: 2,
       img: {
         src: "testimonial_4.avif",
-        title: "Team meeting",
+        alt: "Team meeting",
       },
       thumbImg: {
         src: "thumb_2.png",
-        title: "Sarah Wilson",
+        alt: "Sarah Wilson",
       },
       review: {
         text: "Deadlines were met down to the hour. The result exceeded all expectations. We will definitely work with them again.",
@@ -176,11 +178,11 @@ function App() {
       id: 3,
       img: {
         src: "testimonial_3.jpg",
-        title: "Office workspace",
+        alt: "Office workspace",
       },
       thumbImg: {
         src: "thumb_3.png",
-        title: "Michael Brown",
+        alt: "Michael Brown",
       },
       review: {
         text: "The team demonstrated exceptional expertise and attention to detail. The project was delivered flawlessly.",
@@ -192,11 +194,11 @@ function App() {
       id: 4,
       img: {
         src: "testimonial_1.jpg",
-        title: "Creative session",
+        alt: "Creative session",
       },
       thumbImg: {
         src: "thumb_4.png",
-        title: "Emily Davis",
+        alt: "Emily Davis",
       },
       review: {
         text: "Outstanding communication and results. They truly understand our business needs and deliver beyond expectations.",
@@ -206,74 +208,115 @@ function App() {
     },
   ];
 
+  const radioButtons = [
+    {
+      name: "test",
+      value: "test btn",
+      id: '0',
+    },
+    {
+      name: "test",
+      value: "test 2",
+      id: '1',
+    },
+  ];
+
+  const [selectedValue, setSelectedValue] = useState<string>(radioButtons[0].value);
+
   return (
-    <div className="app">
-      <Text
-        tag="h1"
-        view="title-main"
-        weight="bold"
-        color="primary"
-      >
-        We are Createx Construction Bureau{" "}
-      </Text>
+    <>
+      <header>
+        <Navbar menuItems={menuItems} />
+      </header>
+      <main>
+        <ul>
+          {radioButtons.map((btn) => {
+            return (
+              <li key={btn.id}>
+                <RadioButton
+                  name={btn.name}
+                  value={btn.value}
+                  onChange={(value) => setSelectedValue(value)}
+                  checked={selectedValue === btn.value}
+                  id={btn.id}
+                  label={btn.value}
+                ></RadioButton>
+              </li>
+            );
+          })}
+        </ul>
+        <Text
+          tag="h1"
+          view="title-main"
+          weight="bold"
+          color="primary"
+        >
+          We are Createx Construction Bureau{" "}
+        </Text>
 
-      <Text
-        tag="p"
-        view="p-20"
-        weight="regular"
-        color="secondary"
-      >
-        Cras ultrices leo vitae non viverra. Fringilla nisi quisque consequat, dignissim vitae proin
-        ipsum sed. Pellentesque nec turpis purus eget pellentesque integer ipsum elementum felis.
-      </Text>
+        <Text
+          tag="p"
+          view="p-20"
+          weight="regular"
+          color="secondary"
+        >
+          Cras ultrices leo vitae non viverra. Fringilla nisi quisque consequat, dignissim vitae
+          proin ipsum sed. Pellentesque nec turpis purus eget pellentesque integer ipsum elementum
+          felis.
+        </Text>
 
-      <Text
-        tag="p"
-        view="p-18"
-        weight="regular"
-        color="secondary"
-      >
-        We are rightfully considered to be the best construction company in the USA.
-      </Text>
+        <Text
+          tag="p"
+          view="p-18"
+          weight="regular"
+          color="secondary"
+        >
+          We are rightfully considered to be the best construction company in the USA.
+        </Text>
 
-      <Text
-        tag="p"
-        view="p-16"
-        weight="regular"
-        color="secondary"
-      >
-        Culpa nostrud commodo ea consequat aliquip reprehenderit. Veniam velit nostrud aliquip sunt.
-      </Text>
+        <Text
+          tag="p"
+          view="p-16"
+          weight="regular"
+          color="secondary"
+        >
+          Culpa nostrud commodo ea consequat aliquip reprehenderit. Veniam velit nostrud aliquip
+          sunt.
+        </Text>
 
-      <Text
-        tag="p"
-        view="p-14"
-        weight="regular"
-        color="dark"
-      >
-        Phone*
-      </Text>
+        <Text
+          tag="p"
+          view="p-14"
+          weight="regular"
+          color="dark"
+        >
+          Phone*
+        </Text>
 
-      <Text
-        tag="h2"
-        view="title-secondary"
-        weight="bold"
-        color="primary"
-      >
-        Want to know more? Ask us a question:
-      </Text>
-      <Navbar menuItems={menuItems}></Navbar>
-      <TestimonialCarousel
-        title="What clients are saying"
-        testimonials={testimonialsData}
-      ></TestimonialCarousel>
-      <BrandCarousel sliders={sliders}></BrandCarousel>
-      <Filter
-        items={projects}
-        categories={categories}
-      ></Filter>
-      <Footer></Footer>
-    </div>
+        <Text
+          tag="h2"
+          view="title-secondary"
+          weight="bold"
+          color="primary"
+        >
+          Want to know more? Ask us a question:
+        </Text>
+
+        <TestimonialCarousel
+          title="What clients are saying"
+          testimonials={testimonialsData}
+        ></TestimonialCarousel>
+
+        <BrandCarousel sliders={sliders}></BrandCarousel>
+
+        <Filter
+          items={projects}
+          categories={categories}
+        ></Filter>
+
+        <Footer />
+      </main>
+    </>
   );
 }
 

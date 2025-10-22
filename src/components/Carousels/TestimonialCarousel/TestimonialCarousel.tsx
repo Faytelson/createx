@@ -1,13 +1,28 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Navigation, A11y } from "swiper/modules";
-import { publicPath } from "@utils/utils";
+import { publicPath } from "@/utils";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import "@components/Carousels/TestimonialCarousel/TestimonialCarousel.scss";
-import TestimonialSlide from "@components/Carousels/TestimonialCarousel/TestimonialSlide";
+import TestimonialSlide from "@/components/Carousels/TestimonialCarousel/TestimonialSlide";
+import { type ImageProps } from "@/components/ui/Image";
 
-function BrandCarousel({ testimonials, title }) {
+export type Testimonial = {
+  id: number;
+  img: ImageProps;
+  thumbImg: ImageProps;
+  review: {
+    text: string;
+    name: string;
+    position: string;
+  };
+};
+export type TestimonialCarouselProps = {
+  title: string;
+  testimonials: Testimonial[];
+};
+const TestimonialCarousel: React.FC<TestimonialCarouselProps> = ({ title, testimonials }) => {
   const resolveImg = publicPath("images/testimonials/");
 
   return (
@@ -35,13 +50,19 @@ function BrandCarousel({ testimonials, title }) {
                 key={testimonial.id}
               >
                 <TestimonialSlide
-                  imgSrc={resolveImg(testimonial.img.src)}
-                  imgTitle={testimonial.img.title}
-                  thumbImgSrc={resolveImg(testimonial.thumbImg.src)}
-                  thumbImgTitle={testimonial.thumbImg.title}
-                  text={testimonial.review.text}
-                  name={testimonial.review.name}
-                  position={testimonial.review.position}
+                  img={{
+                    src: resolveImg(testimonial.img.src),
+                    alt: testimonial.img.title || "Testimonial image",
+                  }}
+                  thumb={{
+                    src: resolveImg(testimonial.thumbImg.src),
+                    alt: testimonial.thumbImg.title || "Our client",
+                  }}
+                  review={{
+                    text: testimonial.review.text,
+                    name: testimonial.review.name,
+                    position: testimonial.review.position,
+                  }}
                 ></TestimonialSlide>
               </SwiperSlide>
             );
@@ -50,6 +71,6 @@ function BrandCarousel({ testimonials, title }) {
       </div>
     </section>
   );
-}
+};
 
-export default BrandCarousel;
+export default TestimonialCarousel;
