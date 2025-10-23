@@ -7,6 +7,7 @@ import TestimonialCarousel from "@components/Carousels/TestimonialCarousel";
 import Text from "@ui/Text";
 import RadioButton from "./components/ui/RadioButton";
 import VideoPlayer from "./components/VideoPlayer";
+import FeaturesList from "./components/FeaturesList";
 import { useVh } from "@/hooks/useVh";
 import "@/App.scss";
 
@@ -222,6 +223,27 @@ function App() {
     },
   ];
 
+  const featureListItems = [
+    {
+      image: "like",
+      title: "Quality",
+      description:
+        "Culpa nostrud commodo ea consequat aliquip reprehenderit. Veniam velit nostrud aliquip sunt.",
+    },
+    {
+      image: "hand",
+      title: "Safety",
+      description:
+        "Anim reprehenderit sint voluptate exercitation adipisicing laborum adipisicing. Minim empor est ea.",
+    },
+    {
+      image: "slippers",
+      title: "Comfort",
+      description:
+        "Sit veniam aute dolore adipisicing nulla sit culpa. Minim mollit voluptate ullamco proident ea ad.",
+    },
+  ];
+
   const [selectedValue, setSelectedValue] = useState<string>(radioButtons[0].value);
 
   return (
@@ -230,6 +252,8 @@ function App() {
         <Navbar menuItems={menuItems} />
       </header>
       <main>
+        <FeaturesList features={featureListItems}></FeaturesList>
+
         <VideoPlayer
           source="video/istockphoto-1502193268-640_adpp_is.mp4"
           description="Demonstration video"

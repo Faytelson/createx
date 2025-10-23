@@ -1,5 +1,6 @@
 import { type FC } from "react";
 import ids from "virtual:svg-icons-names";
+import clsx from "clsx";
 export type IconName = (typeof ids)[number];
 export type IconProps = {
   name: IconName;
@@ -7,6 +8,7 @@ export type IconProps = {
   color?: string;
   size?: number;
   ariaLabel?: string;
+  className?: string;
 };
 
 const Icon: FC<IconProps> = ({
@@ -15,12 +17,13 @@ const Icon: FC<IconProps> = ({
   color = "currentColor",
   size = 24,
   ariaLabel,
+  className,
 }) => {
   const symbolId = `#${prefix}-${name}`;
 
   return (
     <svg
-      className="icon"
+      className={clsx("icon", className)}
       aria-label={ariaLabel}
       width={size}
       height={size}
