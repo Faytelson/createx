@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
+import svgr from "vite-plugin-svgr";
 import path from "path";
 import process from "node:process";
 import { fileURLToPath } from "url";
@@ -27,6 +28,7 @@ export default defineConfig({
         ],
       },
     }),
+    svgr(),
   ],
   resolve: {
     alias: {

@@ -1,0 +1,57 @@
+@use "@styles" as *;
+
+.video-player {
+  position: relative;
+  width: 100%;
+  max-height: 100%;
+  aspect-ratio: 3 / 2;
+  font-family: $font-main;
+
+  @media screen and (min-width: $tabletMdBreakpoint) {
+    aspect-ratio: 2.46 / 1;
+  }
+
+  &__video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__controls {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    pointer-events: none;
+    transition:
+      opacity $transition-main,
+      transform $transition-main;
+    will-change: opacity, transform;
+
+    &_hidden {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+  }
+
+  &__playback-indicator {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $color-primary;
+    border-radius: 50%;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media screen and (min-width: $desktopSmBreakpoint) {
+      width: 80px;
+      height: 80px;
+    }
+  }
+}

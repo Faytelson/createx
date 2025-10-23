@@ -6,6 +6,7 @@ import BrandCarousel from "@components/Carousels/BrandCarousel";
 import TestimonialCarousel from "@components/Carousels/TestimonialCarousel";
 import Text from "@ui/Text";
 import RadioButton from "./components/ui/RadioButton";
+import VideoPlayer from "./components/VideoPlayer";
 import { useVh } from "@/hooks/useVh";
 import "@/App.scss";
 
@@ -212,12 +213,12 @@ function App() {
     {
       name: "test",
       value: "test btn",
-      id: '0',
+      id: "0",
     },
     {
       name: "test",
       value: "test 2",
-      id: '1',
+      id: "1",
     },
   ];
 
@@ -229,6 +230,12 @@ function App() {
         <Navbar menuItems={menuItems} />
       </header>
       <main>
+        <VideoPlayer
+          source="video/istockphoto-1502193268-640_adpp_is.mp4"
+          description="Demonstration video"
+          info={{ title: "How to get started", subtitle: "VR Service" }}
+        ></VideoPlayer>
+
         <ul>
           {radioButtons.map((btn) => {
             return (
