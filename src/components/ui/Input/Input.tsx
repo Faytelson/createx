@@ -1,4 +1,4 @@
-import React from "react";
+import React, { type ChangeEventHandler } from "react";
 import styles from "@ui/Input/Input.module.scss";
 import Icon from "@ui/Icon/Icon";
 import clsx from "clsx";
@@ -15,7 +15,7 @@ export type InputProps = {
   error?: string;
   theme?: "light" | "dark";
   className?: string;
-  onChange: (value: string) => void;
+  onChange: ChangeEventHandler<HTMLInputElement>;
 } & Omit<React.InputHTMLAttributes<HTMLInputElement>, "onChange" | "type">;
 
 const Input = ({
@@ -59,7 +59,7 @@ const Input = ({
           id={id}
           disabled={disabled}
           aria-invalid={!!error}
-          onChange={(e) => onChange(e.target.value)}
+          onChange={onChange}
           {...rest}
         />
         {error && (

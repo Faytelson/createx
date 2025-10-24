@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Input from "./components/ui/Input";
+import InputMasked from "./components/ui/InputMasked";
 import Navbar from "@ui/Navbar";
 import Footer from "@components/Footer";
 import Filter from "@ui/Filter";
@@ -262,7 +263,7 @@ function App() {
           placeholder="Your name"
           id="1"
           name="name"
-          onChange={setNameValue}
+          onChange={(e) => setNameValue(e.target.value)}
           label="Enter your name"
         ></Input>
 
@@ -272,19 +273,21 @@ function App() {
           placeholder="Your email"
           id="2"
           name="email"
-          onChange={setEmailValue}
+          onChange={(e) => setEmailValue(e.target.value)}
           label="Enter your email"
         ></Input>
 
-        <Input
-          type="tel"
+        <InputMasked
           value={telValue}
+          onChange={(e) => setTelValue(e.target.value)}
+          mask="+7 (999) 999 - 99 - 99" 
+          disabled={false}
+          type="tel"
           placeholder="Your phone"
           id="3"
           name="phone"
-          onChange={setTelValue}
           label="Enter your phone"
-        ></Input>
+        ></InputMasked>
 
         <FeaturesList features={featureListItems}></FeaturesList>
 
