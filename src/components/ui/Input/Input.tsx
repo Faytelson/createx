@@ -4,6 +4,7 @@ import Icon from "@ui/Icon/Icon";
 import clsx from "clsx";
 
 export type InputProps = {
+  type: "text" | "email" | "tel";
   value: string;
   placeholder: string;
   name: string;
@@ -13,10 +14,12 @@ export type InputProps = {
   disabled?: boolean;
   error?: string;
   theme?: "light" | "dark";
+  className?: string;
   onChange: (value: string) => void;
-} & Omit<React.InputHTMLAttributes<HTMLInputElement>, "onChange">;
+} & Omit<React.InputHTMLAttributes<HTMLInputElement>, "onChange" | "type">;
 
 const Input = ({
+  type,
   value,
   placeholder,
   name,
@@ -26,27 +29,30 @@ const Input = ({
   disabled,
   error,
   theme = "light",
+  className,
   onChange,
   ...rest
 }: InputProps) => {
-  const labelClasses = clsx(styles.label, styles[`label_theme_${theme}`], {
-    [styles.label_disabled]: disabled,
-  });
-
-  const inputClasses = clsx(
-    styles.input,
-    styles[`input_size_${inputSize}`],
-    styles[`input_theme_${theme}`],
-    { [styles.input_error]: error },
-  );
-
   return (
-    <label className={labelClasses}>
-      {label}
-      <div className={styles["input-field"]}>
+    <div className={styles.input}>
+      {label && (
+        <label
+          className={styles["input__label"]}
+          htmlFor={id}
+        >
+          {label}
+        </label>
+      )}
+
+      <div className={styles.input__wrapper}>
         <input
-          className={inputClasses}
-          type="text"
+          className={clsx(
+            styles["input__input-field"],
+            styles[`input__input-field_size_${inputSize}`],
+            styles[`input__input-field_theme_${theme}`],
+            { [styles["input__input-field_error"]]: error },
+          )}
+          type={type}
           value={value}
           placeholder={placeholder}
           name={name}
@@ -57,25 +63,24 @@ const Input = ({
           {...rest}
         />
         {error && (
-          <div className={styles.icon}>
-            <Icon
-              name="danger"
-              size={16}
-              color="var(--color-danger)"
-              ariaLabel="Ошибка"
-            ></Icon>
-          </div>
+          <Icon
+            name="danger"
+            color="var(--color-danger)"
+            ariaLabel="Ошибка"
+            className={styles.input__icon}
+          ></Icon>
         )}
       </div>
+
       {error && (
         <span
-          className={styles.error}
+          className={styles.input__error}
           role="alert"
         >
           {error}
         </span>
       )}
-    </label>
+    </div>
   );
 };
 

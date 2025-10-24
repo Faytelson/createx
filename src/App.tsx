@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Input from "./components/ui/Input";
 import Navbar from "@ui/Navbar";
 import Footer from "@components/Footer";
 import Filter from "@ui/Filter";
@@ -245,6 +246,9 @@ function App() {
   ];
 
   const [selectedValue, setSelectedValue] = useState<string>(radioButtons[0].value);
+  const [nameValue, setNameValue] = useState<string>("");
+  const [emailValue, setEmailValue] = useState<string>("");
+  const [telValue, setTelValue] = useState<string>("");
 
   return (
     <>
@@ -252,6 +256,36 @@ function App() {
         <Navbar menuItems={menuItems} />
       </header>
       <main>
+        <Input
+          type="text"
+          value={nameValue}
+          placeholder="Your name"
+          id="1"
+          name="name"
+          onChange={setNameValue}
+          label="Enter your name"
+        ></Input>
+
+        <Input
+          type="email"
+          value={emailValue}
+          placeholder="Your email"
+          id="2"
+          name="email"
+          onChange={setEmailValue}
+          label="Enter your email"
+        ></Input>
+
+        <Input
+          type="tel"
+          value={telValue}
+          placeholder="Your phone"
+          id="3"
+          name="phone"
+          onChange={setTelValue}
+          label="Enter your phone"
+        ></Input>
+
         <FeaturesList features={featureListItems}></FeaturesList>
 
         <VideoPlayer
